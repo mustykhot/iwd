@@ -3,13 +3,26 @@ import { useState } from "react";
 import { db } from "../firebase";
 const AddMentor = () => {
   const [name, setName] = useState("");
-  const [id, setId] = useState("");
+  const [number, setNumber] = useState("");
   const addId = async (e) => {
     e.preventDefault();
     try {
       const docRef = await addDoc(collection(db, "mentor"), {
         name,
-        id,
+        number,
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
+
+  const addId2 = async (e) => {
+    e.preventDefault();
+    try {
+      const docRef = await addDoc(collection(db, "mentortwo"), {
+        name,
+        number,
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -18,7 +31,12 @@ const AddMentor = () => {
   };
   return (
     <div className="pd_mentor">
-      <form onSubmit={addId}>
+      <form
+        onSubmit={(e) => {
+          addId(e);
+          addId2(e);
+        }}
+      >
         <div className="form_field">
           <label htmlFor="name">Full Name</label>
           <input
@@ -31,10 +49,10 @@ const AddMentor = () => {
           />
         </div>
         <div className="form_field">
-          <label htmlFor="id">ID</label>
+          <label htmlFor="id">Number</label>
           <input
             onChange={(e) => {
-              setId(e.target.value);
+              setNumber(e.target.value);
             }}
             type="text"
             name="id"
