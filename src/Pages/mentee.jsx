@@ -104,7 +104,7 @@ function Mentee() {
                         setIsDrop(false);
                       }}
                     >
-                      {item.number}
+                      {item.name}
                     </p>
                   );
                 })
