@@ -17,7 +17,7 @@ function Mentee() {
   const [mentorList, setMentorList] = useState([]);
   const [isDrop, setIsDrop] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [openModal, setOpenModal] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   console.log(mentor);
   const fetchPost = async () => {
     await getDocs(collection(db, "mentor")).then((querySnapshot) => {
