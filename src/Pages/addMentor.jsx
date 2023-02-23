@@ -4,6 +4,7 @@ import { db } from "../firebase";
 const AddMentor = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const addId = async (e) => {
     e.preventDefault();
     try {
@@ -25,14 +26,16 @@ const AddMentor = () => {
         number,
       });
       console.log("Document written with ID: ", docRef.id);
+      setIsLoading(false);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
   };
   return (
-    <div className="pd_mentor">
+    <div className="pd_mentee">
       <form
         onSubmit={(e) => {
+          setIsLoading(true);
           addId(e);
           addId2(e);
         }}
@@ -59,7 +62,7 @@ const AddMentor = () => {
             id="id"
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">{isLoading ? "Loading..." : "Submit"}</button>
       </form>
     </div>
   );

@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.pd_mentee {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-image: url("./assets/bg.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  form {
+    padding: 75px 30px;
+    width: 600px;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    margin-right: 150px;
+
+    @media only screen and (max-width: 800px) {
+      width: 90%;
+      margin: auto;
+    }
+
+    .logo_container {
+      margin-bottom: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .arup {
+        width: 130px;
+        margin-right: 20px;
+      }
+      .iwd {
+        width: 100px;
+      }
+    }
+    .title {
+      font-weight: 400;
+      font-size: 25px;
+      margin-bottom: 12px;
+      line-height: 38px;
+      @media only screen and (max-width: 600px) {
+        font-size: 20px;
+      }
+    }
+    .form_field {
+      position: relative;
+      input,
+      .select_box {
+        background: #ffffff;
+
+        border-radius: 10px;
+        margin-bottom: 30px;
+        font-size: 16px;
+        line-height: 36px;
+        color: #757575;
+        width: 100%;
+        outline: none;
+        border: 1px solid #757575;
+        height: 50px;
+        padding: 10px;
+      }
+    }
+    .select_box {
+      cursor: pointer;
+    }
+    .drop_down {
+      position: absolute;
+      top: 60px;
+      width: 100%;
+      background-color: white;
+      overflow-y: auto;
+      max-height: 150px;
+      p {
+        cursor: pointer;
+        padding: 5px;
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.25);
+        }
+      }
+    }
+    button {
+      width: 192px;
+      height: 55px;
+      display: block;
+      margin: auto;
+      background: #e40000;
+      border-radius: 10px;
+      font-size: 16px;
+      line-height: 28px;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s ease;
+      &:hover {
+        background: white;
+        border: 1px solid #e40000;
+        color: #e40000;
+      }
+    }
+  }
+}
+
+.modal-wrap {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(9, 9, 23, 0.319);
+  z-index: 1000;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .modal-content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-content {
+    position: relative;
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #a7cfff;
+    border-radius: 20px;
+    flex-direction: column;
+    width: 720px;
+    max-width: 90vw;
+    @apply md:py-5 py-5;
+    margin: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 50px;
+    .btn-wrap {
+      display: flex;
+      justify-content: flex-end;
+      button {
+        min-width: 118px;
+      }
+    }
+    .top_side {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo_box {
+        .arup {
+          width: 102px;
+        }
+        .iwd {
+          width: 78px;
+          margin-left: 20px;
+        }
+      }
+      svg {
+        cursor: pointer;
+      }
+    }
+    p {
+      margin-top: 80px;
+      margin-bottom: 80px;
+      font-size: 20px;
+      line-height: 33px;
+    }
+  }
+  .msg-modal {
+    max-width: 370px;
+    min-height: 280px;
+    .icon-wrap {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      @apply flex items-center justify-center;
+      svg {
+        font-size: 2rem;
+        @apply w-12 h-12 md:w-14 md:h-14;
+      }
+    }
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    .title {
+      font-size: 1.2rem;
+      margin: 0;
+      font-weight: 600;
+    }
+    button {
+      margin-top: auto;
+    }
+  }
+}
