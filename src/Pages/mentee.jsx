@@ -52,6 +52,8 @@ function Mentee() {
     fetchPost();
     setIsLoading(false);
     setOpenModal(true);
+    setMentor({ name: "", id: "", number: "" });
+    setName("");
   };
 
   const closeModal = () => {
