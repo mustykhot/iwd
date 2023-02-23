@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import Table from "@mui/material/Table";
@@ -8,6 +8,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { IconButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 const MentorList = () => {
   const [mentor, setMentor] = useState([]);
 
@@ -19,6 +21,12 @@ const MentorList = () => {
       }));
       setMentor(newData);
     });
+  };
+
+  const deleteMentor = async (id) => {
+    const response = await deleteDoc(doc(db, "mentor", id));
+    console.log(response);
+    fetchPost();
   };
 
   useEffect(() => {
@@ -33,6 +41,7 @@ const MentorList = () => {
             <TableRow>
               <TableCell>Mentor</TableCell>
               <TableCell align="right">Number</TableCell>
+              <TableCell align="right">Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -45,6 +54,15 @@ const MentorList = () => {
                   {row.name}
                 </TableCell>
                 <TableCell align="right">{row.number}</TableCell>
+                <TableCell align="right">
+                  <IconButton
+                    onClick={() => {
+                      deleteMentor(row.id);
+                    }}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
