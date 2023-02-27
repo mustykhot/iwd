@@ -27,6 +27,8 @@ const AddMentor = () => {
       });
       console.log("Document written with ID: ", docRef.id);
       setIsLoading(false);
+      setName("");
+      setNumber("");
     } catch (e) {
       console.error("Error adding document: ", e);
     }

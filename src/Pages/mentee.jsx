@@ -87,7 +87,7 @@ function Mentee() {
             }}
             className="select_box"
           >
-            <p>{mentor.number || "Pick a Number"}</p>
+            <p>{mentor.number || "Pick a Mentor"}</p>
           </div>
           {isDrop && (
             <div className="drop_down">
