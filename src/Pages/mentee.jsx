@@ -18,7 +18,7 @@ function Mentee() {
   const [isDrop, setIsDrop] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  console.log(mentor);
+  console.log(name);
   const fetchPost = async () => {
     await getDocs(collection(db, "mentor")).then((querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => ({
@@ -52,8 +52,8 @@ function Mentee() {
     fetchPost();
     setIsLoading(false);
     setOpenModal(true);
-    setMentor({ name: "", id: "", number: "" });
-    setName("");
+    // setMentor({ name: "", id: "", number: "" });
+    // setName("");
   };
 
   const closeModal = () => {
@@ -87,7 +87,7 @@ function Mentee() {
             }}
             className="select_box"
           >
-            <p>{mentor.number || "Pick a Mentor"}</p>
+            <p>{mentor.name || "Pick a Mentor"}</p>
           </div>
           {isDrop && (
             <div className="drop_down">
@@ -132,9 +132,7 @@ function Mentee() {
                 <ClearIcon onClick={closeModal} />
               </div>
 
-              <p>
-                {name}, Your mentor is {mentor.name}
-              </p>
+              <p>Your mentor is {mentor.name}</p>
             </div>
           </Slide>
         </div>
